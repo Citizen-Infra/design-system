@@ -36,7 +36,10 @@ test('font sources are local, correctly packaged and retain their separate licen
 
 test('packaged font inputs and the approved headline match provenance', () => {
   assert.equal(createHash('sha256').update(read(provenance.font)).digest('hex'), provenance.fontSHA256);
+  assert.equal(createHash('sha256').update(read(provenance.paletteSource)).digest('hex'), provenance.tokensSHA256);
   assert.equal(brandCopy.headline, provenance.headline);
+  assert.equal(brandCopy.name, provenance.name);
+  assert.equal(brandCopy.activities, provenance.activities);
   assert.ok(existsSync(new URL(provenance.renderer, root)));
   assert.ok(existsSync(new URL(provenance.paletteSource, root)));
 });

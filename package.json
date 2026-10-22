@@ -1,7 +1,7 @@
 {
   "name": "@citizen-infra/design-system",
-  "version": "0.1.0-draft.1",
-  "description": "Open Manual: shared design foundations for Citizen Infrastructure Builders Club projects",
+  "version": "0.2.0-draft.1",
+  "description": "Open Index: bold, large-type design foundations for Citizen Infrastructure Builders Club projects",
   "private": true,
   "type": "module",
   "license": "MIT",

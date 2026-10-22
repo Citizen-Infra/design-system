@@ -1,6 +1,6 @@
 /*
- * CIBC Open Manual — 0.1.0-draft.1
- * Shared source extracted from the website pilot. Not a registry release.
+ * CIBC Open Index — 0.2.0-draft.1
+ * Opt-in revision: bright reference fields and large type. Not a registry release.
  * Semantic colors are defined here once; adapters alias these variables.
  * Fonts, component behavior, and application theme preferences are separate.
  */
@@ -11,19 +11,21 @@
   --cibc-weight-regular: 400;
   --cibc-weight-medium: 600;
   --cibc-weight-bold: 700;
-  --cibc-text-caption: 0.8125rem;
-  --cibc-text-ui: 0.875rem;
-  --cibc-text-body: 1rem;
-  --cibc-text-lead: 1.125rem;
-  --cibc-text-title: 1.25rem;
-  --cibc-text-heading: clamp(1.5rem, 1.25rem + 1vw, 2rem);
-  --cibc-text-page: clamp(1.875rem, 1.5rem + 1.5vw, 3rem);
-  --cibc-text-display: clamp(2.25rem, 1.5rem + 3vw, 4.5rem);
-  --cibc-leading-body: 1.6;
+  --cibc-text-caption: clamp(1.25rem, 1.2rem + 0.2vw, 1.375rem);
+  --cibc-text-ui: clamp(1.25rem, 1.2rem + 0.2vw, 1.375rem);
+  --cibc-text-body: clamp(1.375rem, 1.25rem + 0.5vw, 1.5rem);
+  --cibc-text-lead: clamp(1.625rem, 1.25rem + 1vw, 1.875rem);
+  --cibc-text-title: clamp(1.75rem, 1.625rem + 0.3vw, 1.875rem);
+  --cibc-text-heading: clamp(2rem, 1.75rem + 1vw, 2.25rem);
+  --cibc-text-page: clamp(2.25rem, 1.75rem + 2vw, 4rem);
+  --cibc-text-display: clamp(3rem, 1.9rem + 4vw, 5.5rem);
+  --cibc-text-wordmark: clamp(2rem, 1.75rem + 0.7vw, 2.375rem);
+  --cibc-leading-body: 1.4;
   --cibc-leading-ui: 1.4;
-  --cibc-leading-heading: 1.15;
-  --cibc-leading-display: 1.08;
-  --cibc-tracking-heading: -0.025em;
+  --cibc-leading-heading: 1.1;
+  --cibc-leading-display: 1.02;
+  --cibc-tracking-heading: -0.03em;
+  --cibc-tracking-display: -0.035em;
   --cibc-measure-reading: 68ch;
   --cibc-measure-heading: 24ch;
 
@@ -40,9 +42,9 @@
   --cibc-radius-overlay: 0.5rem;
   --cibc-radius-card: 0.75rem;
   --cibc-radius-pill: 999px;
-  --cibc-control-height: 2.75rem;
-  --cibc-control-compact: 2rem;
-  --cibc-control-touch: 3rem;
+  --cibc-control-height: 3.5rem;
+  --cibc-control-compact: 3rem;
+  --cibc-control-touch: 3.75rem;
   --cibc-focus-width: 3px;
   --cibc-focus-offset: 3px;
   --cibc-layout-wide: 80rem;
@@ -56,30 +58,40 @@
 :root,
 [data-cibc-theme="light"] {
   color-scheme: light;
-  --cibc-color-page: #EDF2F5;
+  --cibc-color-page: #F4F44D;
   --cibc-color-surface: #FFFFFF;
-  --cibc-color-surface-subtle: #E3EBEF;
+  --cibc-color-surface-subtle: #FFFDD4;
   --cibc-color-surface-raised: #FFFFFF;
-  --cibc-color-text: #152F3B;
-  --cibc-color-text-secondary: #3E5664;
-  --cibc-color-text-muted: #536A77;
-  --cibc-color-border: #C6D4DC;
-  --cibc-color-control-border: #687F8C;
-  --cibc-color-action: #075A70;
-  --cibc-color-action-hover: #06485B;
-  --cibc-color-action-active: #043B4B;
+  --cibc-color-surface-strong: #2545EF;
+  --cibc-color-on-surface-strong: #FFFFFF;
+  --cibc-color-surface-warm: #FF744E;
+  --cibc-color-on-surface-warm: #14233A;
+  --cibc-color-surface-fresh: #8EF6D0;
+  --cibc-color-on-surface-fresh: #14233A;
+  --cibc-color-text: #14233A;
+  --cibc-color-text-secondary: #253749;
+  --cibc-color-text-muted: #3C4B5E;
+  --cibc-color-border: #C8CE91;
+  --cibc-color-control-border: #53667B;
+  --cibc-color-action: #2545EF;
+  --cibc-color-action-hover: #1832CA;
+  --cibc-color-action-active: #122695;
   --cibc-color-on-action: #FFFFFF;
-  --cibc-color-accent: #DAEC55;
-  --cibc-color-accent-hover: #C5DA39;
-  --cibc-color-accent-active: #B5CA2B;
-  --cibc-color-on-accent: #152F3B;
-  --cibc-color-link: #075A70;
-  --cibc-color-link-hover: #043B4B;
-  --cibc-color-selected: #D5E9EE;
-  --cibc-color-on-selected: #075A70;
-  --cibc-color-focus: #075A70;
-  --cibc-color-disabled: #E3EBEF;
-  --cibc-color-on-disabled: #536A77;
+  --cibc-color-accent: #FF744E;
+  --cibc-color-accent-hover: #F9633D;
+  --cibc-color-accent-active: #F1603B;
+  --cibc-color-on-accent: #14233A;
+  --cibc-color-link: #2545EF;
+  --cibc-color-link-hover: #122695;
+  --cibc-color-link-inverse: #FFFFFF;
+  --cibc-color-link-inverse-hover: #F4F44D;
+  --cibc-color-selected: #E2E8FF;
+  --cibc-color-on-selected: #1832CA;
+  --cibc-color-focus: #14233A;
+  --cibc-color-focus-inverse: #F4F44D;
+  --cibc-color-focus-on-vivid: #14233A;
+  --cibc-color-disabled: #E8EACB;
+  --cibc-color-on-disabled: #3C4B5E;
   --cibc-color-success: #1E5B3F;
   --cibc-color-success-surface: #E2F1E9;
   --cibc-color-success-border: #3F7C5D;
@@ -100,35 +112,45 @@
   --cibc-data-on-low: #152F3B;
   --cibc-data-on-mid: #152F3B;
   --cibc-data-on-high: #FFFFFF;
-  --cibc-shadow-overlay: 0 8px 24px rgb(21 47 59 / 0.16);
+  --cibc-shadow-overlay: 0 8px 24px rgb(20 35 58 / 0.16);
 }
 
 [data-cibc-theme="dark"] {
   color-scheme: dark;
-  --cibc-color-page: #10232C;
-  --cibc-color-surface: #172F3B;
-  --cibc-color-surface-subtle: #203B49;
-  --cibc-color-surface-raised: #203B49;
-  --cibc-color-text: #EDF2F5;
-  --cibc-color-text-secondary: #C2D3DC;
-  --cibc-color-text-muted: #A4BAC6;
-  --cibc-color-border: #38515F;
-  --cibc-color-control-border: #809BAA;
-  --cibc-color-action: #8CD6E2;
-  --cibc-color-action-hover: #B2E7EE;
-  --cibc-color-action-active: #72BDCB;
-  --cibc-color-on-action: #10232C;
-  --cibc-color-accent: #DAEC55;
-  --cibc-color-accent-hover: #C5DA39;
-  --cibc-color-accent-active: #B5CA2B;
-  --cibc-color-on-accent: #152F3B;
-  --cibc-color-link: #8CD6E2;
-  --cibc-color-link-hover: #B2E7EE;
-  --cibc-color-selected: #214B59;
-  --cibc-color-on-selected: #C4EBF1;
-  --cibc-color-focus: #8CD6E2;
-  --cibc-color-disabled: #203B49;
-  --cibc-color-on-disabled: #A4BAC6;
+  --cibc-color-page: #101B33;
+  --cibc-color-surface: #182541;
+  --cibc-color-surface-subtle: #20304E;
+  --cibc-color-surface-raised: #20304E;
+  --cibc-color-surface-strong: #2545EF;
+  --cibc-color-on-surface-strong: #FFFFFF;
+  --cibc-color-surface-warm: #FF744E;
+  --cibc-color-on-surface-warm: #14233A;
+  --cibc-color-surface-fresh: #8EF6D0;
+  --cibc-color-on-surface-fresh: #14233A;
+  --cibc-color-text: #F5F7FF;
+  --cibc-color-text-secondary: #CFD7EC;
+  --cibc-color-text-muted: #B2BED8;
+  --cibc-color-border: #45516A;
+  --cibc-color-control-border: #8A9CBF;
+  --cibc-color-action: #AEC0FF;
+  --cibc-color-action-hover: #C9D5FF;
+  --cibc-color-action-active: #91A8F4;
+  --cibc-color-on-action: #101B33;
+  --cibc-color-accent: #FF987B;
+  --cibc-color-accent-hover: #FFB39E;
+  --cibc-color-accent-active: #F28365;
+  --cibc-color-on-accent: #14233A;
+  --cibc-color-link: #AEC0FF;
+  --cibc-color-link-hover: #C9D5FF;
+  --cibc-color-link-inverse: #FFFFFF;
+  --cibc-color-link-inverse-hover: #F4F44D;
+  --cibc-color-selected: #273B71;
+  --cibc-color-on-selected: #E4E9FF;
+  --cibc-color-focus: #F4F44D;
+  --cibc-color-focus-inverse: #F4F44D;
+  --cibc-color-focus-on-vivid: #14233A;
+  --cibc-color-disabled: #20304E;
+  --cibc-color-on-disabled: #B2BED8;
   --cibc-color-success: #A4DEC0;
   --cibc-color-success-surface: #173E31;
   --cibc-color-success-border: #6FAE8C;

@@ -1,4 +1,4 @@
-// Procedurally authored Open Manual assets. No image-generation service,
+// Procedurally authored Open Index assets. No image-generation service,
 // screenshot of the website, stock artwork, or production dependency required.
 // Pass an installed playwright-core module when it is not locally available:
 // node scripts/render-brand-assets.mjs --playwright-module /path/to/playwright-core/index.mjs
@@ -18,21 +18,23 @@ const font = await readFile(resolve(root, 'fonts/public-sans-latin-normal.woff2'
 const escape = text => text.replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
 const css = `@font-face{font-family:"Public Sans";src:url('/font.woff2') format('woff2');font-weight:400 700;font-style:normal;font-display:block}*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%}body{font-family:var(--cibc-font-sans);font-synthesis:none} ${tokens}`;
 const mark = `<div class="mark" aria-label="CIBC"><span>C</span><span>I</span><span>B</span><span>C</span></div>`;
-const page = (style, body) => `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>CIBC Open Manual artwork</title><style>${css}${style}</style></head><body>${body}</body></html>`;
+const page = (style, body) => `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>CIBC Open Index artwork</title><style>${css}${style}</style></head><body>${body}</body></html>`;
 const icon = page(`
 body{background:var(--cibc-color-action);color:var(--cibc-color-on-action)}
 .mark{width:512px;height:512px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;align-items:center;justify-items:center;padding:38px 44px 44px;gap:0;font-size:212px;font-weight:700;line-height:1;letter-spacing:-.025em}
 `, mark);
 const social = page(`
-body{width:1200px;height:630px;padding:54px 64px;background:var(--cibc-color-page);color:var(--cibc-color-text);display:flex;flex-direction:column;justify-content:space-between}
-header{display:flex;align-items:start;justify-content:space-between}
-.wordmark{font-weight:700;font-size:27px;line-height:1.22;letter-spacing:-.025em}
+body{width:1200px;height:630px;background:var(--cibc-color-page);color:var(--cibc-color-text);display:flex;flex-direction:column;justify-content:space-between}
+main{padding:58px 64px 42px;position:relative}
 .mark{width:76px;height:76px;display:grid;grid-template-columns:1fr 1fr;align-items:center;justify-items:center;padding:7px 9px 9px;background:var(--cibc-color-action);color:var(--cibc-color-on-action);font-size:30px;font-weight:700;line-height:1;letter-spacing:-.025em}
-h1{margin:22px 0 30px;max-width:1050px;font-size:68px;font-weight:700;line-height:1.08;letter-spacing:-.025em;text-wrap:balance}
-footer{display:flex;align-items:center;justify-content:space-between;gap:26px;border-top:1px solid var(--cibc-color-control-border);padding-top:27px;font-size:21px;line-height:1.5}
-.address{padding:10px 17px;background:var(--cibc-color-accent);color:var(--cibc-color-on-accent);font-weight:600;white-space:nowrap}
-.description{max-width:670px;color:var(--cibc-color-text-secondary);text-align:right}
-`, `<header><div class="wordmark">Citizen Infrastructure<br>Builders Club</div>${mark}</header><h1>${escape(siteCopy.headline)}</h1><footer><span class="address">citizeninfra.org</span><span class="description">Scheduling, fair selection, community tools,<br>and shared knowledge.</span></footer>`);
+main>.mark{position:absolute;right:64px;top:58px}
+h1{margin:0;max-width:930px;font-size:74px;font-weight:700;line-height:1.02;letter-spacing:-.035em}
+h1 span{display:block}
+.description{margin:44px 0 0;max-width:940px;font-size:32px;line-height:1.3}
+footer{display:flex;align-items:center;justify-content:space-between;gap:28px;padding:40px 64px;min-height:160px;background:var(--cibc-color-surface-strong);color:var(--cibc-color-on-surface-strong)}
+.activities{font-size:38px;font-weight:700;letter-spacing:-.025em}
+.address{font-size:28px;font-weight:600;white-space:nowrap}
+`, `<main><h1><span>Citizen Infrastructure</span><span>Builders Club</span></h1>${mark}<p class="description">${escape(siteCopy.headline)}</p></main><footer><span class="activities">${escape(siteCopy.activities)}</span><span class="address">${escape(siteCopy.domain)}</span></footer>`);
 
 const server = createServer((request, response) => {
   const route = new URL(request.url, 'http://localhost').pathname;
@@ -86,8 +88,12 @@ try {
     tokensSHA256: createHash('sha256').update(tokens).digest('hex'),
     headlineSource: 'brand/content.js#brandCopy.headline',
     headline: siteCopy.headline,
+    name: siteCopy.name,
+    activities: siteCopy.activities,
+    visualTreatment: 'Open Index: yellow club introduction, blue reference field, large type throughout.',
     images: [...outputs.map(([file, size]) => ({ file: `brand/${file}`, width: size, height: size })), { file: 'brand/og-image.png', width: 1200, height: 630 }],
     fontLicence: 'fonts/OFL-Public-Sans.txt',
+    artworkLicence: 'MIT',
     note: 'Re-rendering resets embedded raster provenance; embed source descriptions again before delivery.'
   }, null, 2) + '\n');
 } finally {

@@ -1,8 +1,8 @@
 # CIBC design system
 
-**Open Manual** is the shared design foundation for the Citizen Infrastructure Builders Club: readable Public Sans, cool light surfaces, petrol ink and actions, restrained citron emphasis, and plain explanations of what the tools do.
+**Open Index** is the bold, large-type shared design foundation for the Citizen Infrastructure Builders Club: bright yellow club information, a strong blue reference field, readable Public Sans, coral/mint supporting fields, and plain functional communication.
 
-This is the initial **0.1.0-draft.1** foundation, extracted from the CIBC website pilot. It is not a finished cross-product component library. The wiki and applications have not been migrated by creating this repository.
+This is the opt-in **0.2.0-draft.1** revision. It replaces the initial pilot's subdued palette and small type scale; it is not a drop-in visual update. Existing consumers pinned to an earlier commit remain unchanged until they explicitly adopt a new revision. It is not a finished cross-product component library or an automatic wiki/application migration.
 
 ## What is here
 
@@ -13,6 +13,12 @@ This is the initial **0.1.0-draft.1** foundation, extracted from the CIBC websit
 - [`guides/adoption.md`](guides/adoption.md): integration boundaries for websites, reading surfaces, and applications.
 - [`scripts/render-brand-assets.mjs`](scripts/render-brand-assets.mjs): reproducible procedural artwork source; browser tooling is not a production dependency.
 - [`test/`](test/): dependency-free token, contrast, packaging, asset, and licence checks.
+
+## Large type and coloured fields
+
+Supporting text has a 20px-equivalent minimum, growing to 22px at wide viewports; body type is 22–24px, lead 26–30px, and display 48–88px. Values use rem-based clamps and do not override the user's root font preference. Standard controls grow to 56px-equivalent (60px touch, 48px compact).
+
+Use `surface-strong` with `on-surface-strong` for the blue reference field, and inverse link/focus roles inside it. Coral `surface-warm` and mint `surface-fresh` have their own dark on-field text and `focus-on-vivid`; do not place the ordinary blue link or dark-mode focus colour on those fields blindly. Status and data semantics remain separate from these brand surfaces.
 
 ## Consumption
 
@@ -43,7 +49,7 @@ Requires Node ≥22.12. No install is needed to run the contract tests:
 npm test
 ```
 
-The contract tests validate 104 specified light/dark contrast pairs. This is mathematical coverage of those combinations, not a complete WCAG audit, a guarantee for interpolated data colors, or proof that every downstream interface works.
+The contract tests validate 120 specified light/dark contrast pairs, including new field/inverse roles, plus type floors and distribution/licence consistency. This is mathematical coverage of those combinations, not a complete WCAG audit, a guarantee for interpolated data colors, or proof that every downstream interface works. See the [migration notes](guides/migrating-to-0.2.md) before adoption.
 
 ## Release boundaries
 

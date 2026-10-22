@@ -1,6 +1,6 @@
 # CIBC typographic assets
 
-The four PNGs are original procedural typography in the Open Manual visual language:
+The four PNGs are original procedural typography in the Open Index visual language:
 
 | File | Dimensions | Use |
 |---|---|---|
@@ -9,9 +9,9 @@ The four PNGs are original procedural typography in the Open Manual visual langu
 | `apple-touch-icon.png` | 180×180 | Apple touch icon |
 | `og-image.png` | 1200×630 | Club social preview |
 
-Initials read **C I / B C** in a two-by-two arrangement, white on petrol. The social image adds the club name, approved headline, domain, and factual functionality categories. It is not a screenshot or a record of live activity.
+Initials read **C I / B C** in a two-by-two arrangement, white on strong blue. The social image centres the full club name on bright yellow, keeps the approved plain-language headline, and places the collective's Build/Learn/Teach language and domain in a blue reference field. It is not a screenshot, product-demo selector, or record of live activity. Supporting image text remains large rather than fine print.
 
-The PNGs are imported byte-for-byte from the website pilot and retain embedded authored-source descriptions naming that original source tree. `provenance.json` explains the import and the current shared source paths. The normal and italic font binaries remain separately licensed under OFL; the new artwork is covered by the repository's MIT licence.
+The `0.2` PNGs were re-rendered from this repository's source and canonical tokens. `provenance.json` records the actual font/token inputs and hashes; each PNG also embeds its authored-source description. The normal and italic font binaries remain separately licensed under OFL; the new artwork is covered by the repository's MIT licence. Consumers pinned to `0.1` retain their old assets until they explicitly adopt and refresh serving copies.
 
 To regenerate with an existing Playwright Core installation and installed Google Chrome:
 
