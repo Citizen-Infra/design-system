@@ -1,0 +1,33 @@
+{
+  "name": "@citizen-infra/design-system",
+  "version": "0.1.0-draft.1",
+  "description": "Open Manual: shared design foundations for Citizen Infrastructure Builders Club projects",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Citizen-Infra/design-system.git"
+  },
+  "exports": {
+    "./tokens.css": "./tokens.css",
+    "./fonts.css": "./fonts.css",
+    "./brand/*": "./brand/*"
+  },
+  "files": [
+    "tokens.css",
+    "fonts.css",
+    "fonts/",
+    "brand/",
+    "guides/",
+    "README.md",
+    "LICENSE",
+    "THIRD_PARTY.md"
+  ],
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22.12"
+  }
+}

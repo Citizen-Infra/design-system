@@ -1,0 +1,21 @@
+{
+  "authoring": "Original procedural typography artwork imported byte-for-byte from the CIBC website pilot; no generative image model or external image assets.",
+  "origin": "Citizen-Infra/cibc-website Open Manual pilot, 2026-10-22. Original embedded descriptions name that source tree; this record identifies the shared source paths.",
+  "renderer": "scripts/render-brand-assets.mjs",
+  "font": "fonts/public-sans-latin-normal.woff2",
+  "fontSHA256": "c1b6da516e0062e9c2f341b3a51dd2d621d946da72f06c6cfe05fd9d2dd8622d",
+  "paletteSource": "tokens.css",
+  "originTokensSHA256": "32725fbddbf86560a7c88fecc13e166ec8f9e333b60f610e6ad9379b51ed6a33",
+  "paletteNote": "The shared token file differs from the original only in its descriptive header comment; numeric values are unchanged.",
+  "headlineSource": "brand/content.js#brandCopy.headline",
+  "headline": "We build tools that let communities act together.",
+  "images": [
+    { "file": "brand/favicon-16.png", "width": 16, "height": 16 },
+    { "file": "brand/favicon-32.png", "width": 32, "height": 32 },
+    { "file": "brand/apple-touch-icon.png", "width": 180, "height": 180 },
+    { "file": "brand/og-image.png", "width": 1200, "height": 630 }
+  ],
+  "fontLicence": "fonts/OFL-Public-Sans.txt",
+  "artworkLicence": "MIT",
+  "note": "Regeneration resets embedded raster provenance; embed accurate shared-source descriptions again before delivery."
+}
